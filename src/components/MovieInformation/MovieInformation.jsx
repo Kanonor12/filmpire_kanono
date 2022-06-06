@@ -4,7 +4,7 @@ import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBord
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { useGetMovieQuery } from '../../services/TMDB';
+import { useGetMovieQuery, useGetRecommendationsQuery } from '../../services/TMDB';
 
 
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
@@ -13,6 +13,7 @@ import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 import genreIcons from '../../assets/genres';
 import useStyles from "./styles";
+import MovieList from '../MovieList/MovieList';
 
 
 const MovieInformation = () => {
@@ -20,6 +21,8 @@ const MovieInformation = () => {
   const { data, isFetching, error} = useGetMovieQuery(id);
    const classes = useStyles();
   const dispatch = useDispatch();
+
+  const { data: recommendations, isFetching: isRecommendationsFetching} = useGetRecommendationsQuery({ list: '/recommendations', movie_id: id})
   
   const isMovieFavorited = true;
   const isMovieWatchlisted = true;
@@ -127,6 +130,13 @@ const MovieInformation = () => {
           </div>
         </Grid>
       </Grid>
+      <Box marginTop="5rem" width="100%">
+        <Typography variant="h3" gutterBottom align="center">
+          You might also like
+        </Typography>
+        {recommendations ? <MovieList movies={recommendations} numberOfMovies={12}/> 
+        : <Box>Sorry, nothing was found.</Box>}
+      </Box>
    </Grid>
   )
 }
