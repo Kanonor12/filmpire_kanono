@@ -40,8 +40,25 @@ export default makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        textDecoration: "none",
         [theme.breakpoints.down('sm')]: {
             padding: "0.5rem 1rem",
          },
     },
+    castImage: {
+        width: "100%",
+        maxWidth: "7em",
+        height: "8em",
+        objectFit: "cover",
+        borderRadius: "10px",
+    },
+    buttonsContainer: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        gap: "2rem",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+        }
+    }
 }));
