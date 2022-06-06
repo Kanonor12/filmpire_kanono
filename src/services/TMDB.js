@@ -22,7 +22,7 @@ export const tmdbApi = createApi({
                 if(genreOrCategoryName && typeof genreOrCategoryName === 'string'){
                     return `movie/${genreOrCategoryName}?page=${page}&api_key=${tmdbApiKey}`;
                 }
-                //https://api.themoviedb.org/3/discover/movie?api_key=<<api_key>>&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate
+                
                 //* Get Movies by Genre
                 if(genreOrCategoryName && typeof genreOrCategoryName === 'number'){
                     return `discover/movie?with_genres=${genreOrCategoryName}&page=${page}&api_key=${tmdbApiKey}`;
@@ -40,6 +40,14 @@ export const tmdbApi = createApi({
         getRecommendations: builder.query({
             query: ({movie_id, list}) => `/movie/${movie_id}/${list}?api_key=${tmdbApiKey}`
         }),
+        //* Get Actor's Details
+        getActorsDetails: builder.query({
+            query: (id) => `/person/${id}?api_key=${tmdbApiKey}`,
+        }),
+        //* Get Movie by Actor
+        getMovieByActorId: builder.query({
+            query: ({id, page}) => `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`
+        })
     }),
 });
 
@@ -48,4 +56,6 @@ export const {
     useGetMoviesQuery,
     useGetMovieQuery,
     useGetRecommendationsQuery,
+    useGetActorsDetailsQuery,
+    useGetMovieByActorIdQuery,
 } = tmdbApi;
