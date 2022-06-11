@@ -54,14 +54,14 @@ export default makeStyles((theme) => ({
         objectFit: "cover",
         borderRadius: "10px",
     },
+    
     buttonsContainer: {
         width: "100%",
-        display: "flex",
-        gap: "8rem",
+               display: "flex",
         justifyContent: "space-between",
-        
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
+            gap: "2rem",
         }
     },
     modal: {

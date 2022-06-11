@@ -21,7 +21,7 @@ const Search = () => {
     } 
   }
 
-  if(location == "/movie/:id") return null;
+  if(location.pathname !== "/") return null;
 
   return (
     <div className={classes.searchContainer}>

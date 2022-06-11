@@ -145,6 +145,8 @@ const MovieInformation = () => {
                 <Button target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${data?.imdb_id}`} endIcon={<MovieIcon/>}>IMDB</Button>
                 <Button onClick={() => {setOpen(true)}} href="#" endIcon={<Theaters/>}>Trailer</Button>
               </ButtonGroup>
+            </Grid>
+            <Grid item xs={12} sm={6} className={classes.buttonsContainer}>
               <ButtonGroup size="medium" variant="outlined">
                 <Button onClick={addToFavorites} endIcon={isMovieFavorited ? <FavoriteBorderOutlined/> : <Favorite/>}>
                   {isMovieFavorited ? "Favorite" : "Unfavorite"}
