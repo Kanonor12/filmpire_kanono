@@ -1,0 +1,15 @@
+{// Settings JSON
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  
+  "eslint.workingDirectories": [
+    "./client", 
+    "./server",
+    "mode", "auto"
+  ],
+  
+  "files.exclude": {
+    "**/.git": false,
+  },
+}

@@ -7,12 +7,13 @@ export default makeStyles((theme) => ({
         margin: "10px 0 !important",
         [theme.breakpoints.down('sm')]: {
             flexDirection: "column",
+            justifyContent: "center",
             flexWrap: "wrap",
         }
     },
     poster: {
         borderRadius: "20px",
-        boxShadow: "0.5em 1em 1em black",
+        boxShadow: "0.5em 1em 1em rgb(64, 64, 70)",
         width: "80%",
         [theme.breakpoints.down('md')]: {
             margin: "0 auto",
@@ -25,6 +26,7 @@ export default makeStyles((theme) => ({
            height: "350px",
            marginBottom: "30px",
         },
+        
     },
     genresContainer: {
         margin: "10px 0 !important",
@@ -55,8 +57,9 @@ export default makeStyles((theme) => ({
     buttonsContainer: {
         width: "100%",
         display: "flex",
+        gap: "8rem",
         justifyContent: "space-between",
-        gap: "2rem",
+        
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
         }
