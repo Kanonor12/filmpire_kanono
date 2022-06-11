@@ -3,10 +3,15 @@ import { Route, Switch } from "react-router-dom";
 import {MovieInformation, Actors, Movies, NavBar, Profile}  from '../components'
 
 import useStyles from './styles';
+import useAlan from "./Alan";
+import { useRef } from "react";
 
 
 const App = () => {
   const classes = useStyles();
+  const alanBtnContainer = useRef();
+  useAlan();
+
   return (
 
     <div className={classes.root}>
@@ -29,6 +34,7 @@ const App = () => {
             </Route>
         </Switch>
     </main>
+    <div ref={alanBtnContainer}/>
     </div>
   )
 }
