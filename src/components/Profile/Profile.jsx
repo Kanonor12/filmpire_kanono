@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Typography, Button, Box } from '@mui/material';
+import { Typography, Button, Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { ExitToApp } from '@mui/icons-material';
 
@@ -9,7 +9,7 @@ import RatedCards from '../../RatedCards/RatedCards';
 
 const Profile = () => {
     const {user} = useSelector(userSelector);
-    console.log("Here")
+    const isMobile = useMediaQuery('(max-width:600px)');
     const {data: favoriteMovies, refetch: refetchFavorites} = useGetListQuery({listName: "favorite/movies", accountId: user.id, sessionId: localStorage.getItem("session_id"), page: 1});
     const {data: watchlistMovies, refetch: refetchWatchlisted} = useGetListQuery({listName: "watchlist/movies", accountId: user.id, sessionId: localStorage.getItem("session_id"), page: 1});
     
@@ -31,7 +31,7 @@ const Profile = () => {
     <Box>
       <Box display="flex" justifyContent="space-between">
         <Typography variant='h4' gutterBottom>
-          My Profile - {user.username}
+         {!isMobile ? `My Profile - ${user.username}` : "My Profile" }
         </Typography>
         <Button color='inherit' onClick={logout} >
           Logout &nbsp; <ExitToApp/>
