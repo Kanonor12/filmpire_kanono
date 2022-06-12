@@ -14,7 +14,6 @@ const RatedCards = ({title, data}) => {
         <Box display="flex" flexWrap="wrap" className={classes.container}>
             {data?.results.map((movie, i) => (
               <>
-              {console.log(data)}
               <Movie key={movie.id} movie={movie} i={i} />
               </>
                 
